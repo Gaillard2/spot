@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import CampaignList from "../components/CampaignList"
 import api from "../services/api"
 import StatistiqueCampaign from "../components/Statistique"
-import { FiBarChart2, FiList, FiPlus } from "react-icons/fi"
+// import { FiBarChart2, FiList, FiPlus } from "react-icons/fi"
 
 interface Campaign {
   id: string
@@ -84,26 +84,26 @@ const Home: React.FC = () => {
       {/* 🔹 Header fixe esthétique */}
       <header className="fixed top-0 left-0 right-0 bg-white shadow-md z-50 py-4 px-6 flex justify-between items-center max-w-7xl mx-auto rounded-b-2xl">
         <h1 className="text-3xl font-bold flex items-center gap-2 text-blue-700">
-          <FiBarChart2 size={28} /> Campaign Dashboard
+          Campaign Dashboard
         </h1>
         <div className="flex gap-4">
           <button
             onClick={() => navigate("/")}
             className="flex items-center gap-1 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition"
           >
-            <FiBarChart2 /> Home
+             Home
           </button>
           <button
             onClick={() => navigate("/detail")}
             className="flex items-center gap-1 px-4 py-2 rounded-lg bg-green-600 hover:bg-green-700 text-white font-medium transition"
           >
-            <FiList /> Détail
+             Détail
           </button>
           <button
             onClick={() => navigate("/create")}
             className="flex items-center gap-1 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 text-white font-medium transition"
           >
-            <FiPlus /> Créer
+             Créer
           </button>
         </div>
       </header>

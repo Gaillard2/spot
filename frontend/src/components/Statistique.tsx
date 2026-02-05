@@ -10,7 +10,7 @@ interface Campaign {
     clicks: number
 }
 
-// 🔹 Props modifiées : soit une campagne, soit plusieurs pour global
+
 interface Props {
     campaign?: Campaign
     campaigns?: Campaign[]
@@ -19,7 +19,6 @@ interface Props {
 
 const StatistiqueCampaign: React.FC<Props> = ({ campaign, campaigns, onToggleStatus }) => {
 
-    // 🔹 Si plusieurs campagnes : stats globales
     let displayName = ""
     let impressions = 0
     let clicks = 0
@@ -44,10 +43,10 @@ const StatistiqueCampaign: React.FC<Props> = ({ campaign, campaigns, onToggleSta
 
     return (
         <div className="flex flex-col h-full">
-            {/* Titre */}
+          
             <h3 className="text-lg font-semibold mb-2">{displayName}</h3>
 
-            {/* 🔹 Stats en 2x2 grid qui prend tout l'espace */}
+   
             <div className="grid grid-cols-2 gap-4 flex-grow">
                 <div className="bg-blue-50 p-4 rounded-xl">
                     <p className="text-xs text-gray-500">Impressions</p>
@@ -70,7 +69,6 @@ const StatistiqueCampaign: React.FC<Props> = ({ campaign, campaigns, onToggleSta
                 </div>
             </div>
 
-            {/* 🔹 Boutons alignés en bas */}
             <div className="mt-auto space-y-2">
                 {campaigns && campaigns.length > 0 && (
                     <button className="w-full py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium">
