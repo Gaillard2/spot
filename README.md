@@ -75,7 +75,3 @@ spot/
 
 
 
-
-
-git clone https://github.com/votre-utilisateur/campaign-dashboard.git
-cd campaign-dashboard
