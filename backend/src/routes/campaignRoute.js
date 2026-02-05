@@ -8,6 +8,8 @@ router.post('/', controller.createCampaign);
 
 router.get('/', controller.listCampaigns);
 
+router.get('/stats/all', controller.getAllStats);
+
 router.get('/:id', controller.getCampaign);
 
 router.patch('/:id/status', controller.patchStatus);

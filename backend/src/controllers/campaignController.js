@@ -132,3 +132,19 @@ export const getStats = async (req, res) => {
     return res.status(500).json({ error: 'internal_error' });
   }
 };
+
+
+export const getAllStats = async (req, res) => {
+  try {
+    const stats = await service.getAllCampaignStats(); // récupère toutes les campagnes avec stats
+    if (!stats || stats.length === 0) {
+      return res.status(404).json({ error: 'no_campaigns_found' });
+    }
+
+    return res.json(stats); // renvoie le tableau complet
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'internal_error' });
+  }
+};
+

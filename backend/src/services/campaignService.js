@@ -49,3 +49,28 @@ export const getCampaignStats = async (id) => {
 		budget,
 	};
 };
+
+export const getAllCampaignStats = async () => {
+  // Récupère toutes les campagnes sans pagination
+  const { items: campaigns } = await getCampaigns({ page: 1, limit: 1000 }); // tu peux ajuster le limit
+
+  if (!campaigns || campaigns.length === 0) return [];
+
+  // Map chaque campagne pour calculer les stats
+  return campaigns.map(campaign => {
+    const impressions = campaign.impressions || 0;
+    const clicks = campaign.clicks || 0;
+    const budget = campaign.budget || 0;
+
+    const ctr = impressions === 0 ? 0 : (clicks / impressions) * 100; // en %
+    const cpc = clicks === 0 ? 0 : budget / clicks;
+
+    return {
+      ...campaign.toObject(), // pour convertir le document Mongoose en objet JS pur
+      ctr,
+      cpc,
+    };
+  });
+};
+
+
